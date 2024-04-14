@@ -8,11 +8,11 @@ const AddToCartComponent = ({ onAddToCart }) => {
         setCounter(counter + val);
     }
     return (
-        <div className="flex w-fit mx-auto">
+        <div className="flex mx-auto mt-10">
             <button className="less" onClick={() => change(-1)}>-</button>
-            <p className="counter">{counter}</p>
+            <p className="counter w-10 text-center mt-3">{counter}</p>
             <button className="more" onClick={() => change(+1)}>+</button>
-            <button className="btn btn-primary" onClick={() => onAddToCart(1)}>Add to cart</button>
+            <button className="btn btn-primary ml-5 bg-slate-600 text-white" onClick={() => onAddToCart(1)}>Add to cart</button>
         </div>
     )
 }

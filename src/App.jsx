@@ -21,13 +21,15 @@ function App() {
   return (
     <BrowserRouter>
       <Header categories={categories} />
-      <Routes>
-        <Route path="/" element={<ItemListContainer categoryName="home" url={baseUrl} />} />
-        {categories.map((category, index) => (
-        <Route key={index} path={`/category/${category}`} element={<ItemListContainer categoryName={category} url={`${baseUrl}/category/${category}`} />} />
-        ))}
-        <Route path={`/item/:id`} element={<ItemDetailContainer />} />
-      </Routes>
+      <section className="container">
+        <Routes>
+          <Route path="/" element={<ItemListContainer categoryName="home" url={baseUrl} />} />
+          {categories.map((category, index) => (
+          <Route key={index} path={`/category/${category}`} element={<ItemListContainer categoryName={category} url={`${baseUrl}/category/${category}`} />} />
+          ))}
+          <Route path={`/item/:id`} element={<ItemDetailContainer />} />
+        </Routes>
+      </section>
       <Footer />
     </BrowserRouter>
   )

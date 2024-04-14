@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import StarsComponent from './StarsComponent';
 import AddToCartComponent from './AddToCartComponent';
+import './ItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState([]);
@@ -21,7 +22,7 @@ const ItemDetailContainer = () => {
             <div className="product__info text-left">
                 <h1>{product.title}</h1>
                 <p className="product__price">${product.price}</p>
-                {product.rating && <div className="flex w-fit mx-auto"><StarsComponent rating={product.rating.rate} /> ({product.rating.count})</div>}
+                {product.rating && <div className="flex mx-auto"><StarsComponent rating={product.rating.rate} /> ({product.rating.count})</div>}
                 <p className="product__description">{product.description}</p>
                 <AddToCartComponent onAddToCart={() => { console.log(`Added ${product.title} to cart`   )}} />
             </div>

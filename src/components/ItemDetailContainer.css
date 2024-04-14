@@ -1,0 +1,16 @@
+.itemContainer {
+    margin: 5em auto 0;
+    max-width: 1280px;
+}
+.product__image {
+    overflow: hidden;
+    max-height: 500px;
+    max-width: 500px;
+}
+.product__image img {
+    height: fit-content;
+    width: fit-content;
+    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+}
