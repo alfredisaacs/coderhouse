@@ -1,0 +1,20 @@
+  .rating > span {
+    display: inline-block;
+    position: relative;
+    height: 1.1em;
+    opacity: .5;
+    width: 1.1em;
+  }
+  .ratingBase {
+    position: relative;
+    overflow: hidden;
+    height: 1.4em;
+    width: fit-content;
+  }
+  .retingData {
+    overflow: hidden;
+    height: 1.4em;
+  }
+  .ratingContainer {
+    width: 100px;
+  }

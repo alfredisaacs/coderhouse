@@ -1,19 +1,16 @@
-import { useState } from "react";
-import MusicIcon from "../assets/music-icon.svg";
+import PropTypes from 'prop-types';
+import { Link, NavLink } from 'react-router-dom';
+import StoreIcon from "../assets/store-icon.svg";
 import CartWidget from "./CartWidget";
 import './NavBar.css';
-const NavBar = () => {
-    const [cartItems, setCartItems] = useState(7);
-    const addItems = () => {
-        setCartItems(cartItems + 1);
-    }
+const NavBar = (props) => {
     return (
         <nav className="flex items-center justify-between flex-wrap p-6 bg-slate-600">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
-                <a href="#">
-                    <img className="fill-white invert" src={MusicIcon} height="54" width="54" />
-                </a>
-                <span className="font-semibold text-xl tracking-tight oswald-700">OnlineStore</span>
+                <Link to="/">
+                    <img className="fill-white invert" src={StoreIcon} height="50" width="50" />
+                </Link>
+                <span className="font-semibold text-xl tracking-tight oswald-700 ml-4">OnlineStore</span>
             </div>
             <div className="block lg:hidden">
                 <button className="flex items-center px-3 py-2 border rounded  hover:text-white hover:border-white">
@@ -21,30 +18,22 @@ const NavBar = () => {
                 </button>
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                <div className="text-sm lg:flex-grow">
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4">
-                        Strings
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4">
-                        Winds
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4">
-                        Percusions
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4">
-                        Pianos
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4">
-                        Accessories
-                    </a>
+                <div className="text-sm lg:flex-grow mainNav">
+                    <NavLink to="/" className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4">Home</NavLink>
+                    {props.categories.map((category, index) => (
+                        <NavLink key={index} to={`/category/${category}`} className="block mt-4 lg:inline-block lg:mt-0 text-cyan-50 hover:text-neutral-300 mr-4 capitalize  ">{category}</NavLink>
+                    ))}
                 </div>
-                <button onClick={addItems} className="hidden">Agrega items</button>
                 <div className="cart">
-                    <CartWidget items={cartItems} />
+                    <CartWidget items='7' />
                 </div>
             </div>
         </nav>
     )
+}
+
+NavBar.propTypes = {
+    categories: PropTypes.array.isRequired
 }
 
 export default NavBar;
