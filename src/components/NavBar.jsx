@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
-import StoreIcon from "../assets/store-icon.svg";
-import CartWidget from "./CartWidget";
-import './NavBar.css';
+import PropTypes from 'prop-types'
+import { Link, NavLink } from 'react-router-dom'
+import useCart from '../hooks/useCart'
+import StoreIcon from "../assets/store-icon.svg"
+import CartWidget from "./CartWidget"
+import './NavBar.css'
 const NavBar = (props) => {
+    const contextValue = useCart()
+
     return (
         <nav className="flex items-center justify-between flex-wrap p-6 bg-slate-600">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -25,7 +28,7 @@ const NavBar = (props) => {
                     ))}
                 </div>
                 <div className="cart">
-                    <CartWidget items='7' />
+                    <CartWidget items={contextValue.amountItems} />
                 </div>
             </div>
         </nav>

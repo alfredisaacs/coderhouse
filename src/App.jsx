@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartProvider from './StoreContext';
 import Header  from './components/Header';
 import Footer  from './components/FooterComponent';
-import ItemListContainer  from './components/ItemListContainer';
-import ItemDetailContainer  from './components/ItemDetailContainer';
+import ItemListContainer  from './containers/ItemListContainer';
+import ItemDetailContainer  from './containers/ItemDetailContainer';
 import './App.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <CartProvider>
       <Header categories={categories} />
       <section className="container">
         <Routes>
@@ -30,6 +32,7 @@ function App() {
           <Route path={`/item/:id`} element={<ItemDetailContainer />} />
         </Routes>
       </section>
+      </CartProvider>
       <Footer />
     </BrowserRouter>
   )
