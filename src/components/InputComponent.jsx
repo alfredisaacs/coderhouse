@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
 
 const InputComponent = ({
-    type = 'text',
-    name = '',
-    placeholder = '',
-    onChange = () => {},
-}) => {
+        type = 'text',
+        name = '',
+        value = '',
+        placeholder = '',
+        onChange = () => {},
+    }) => {
 
     const handleChange = (e) => {
         onChange(e.target.value)
     }
     return (
         <div className="input">
+            <label>{name}</label>
             <input
                 type={type}
                 name={name}
+                value={value}
                 placeholder={placeholder}
                 onChange={handleChange}
             />
@@ -25,6 +28,7 @@ const InputComponent = ({
 InputComponent.propTypes = {
     type: PropTypes.string,
     name: PropTypes.string,
+    value: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
 };

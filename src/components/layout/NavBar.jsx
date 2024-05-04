@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { Link, NavLink } from 'react-router-dom'
-import useCart from '../hooks/useCart'
-import StoreIcon from "../assets/store-icon.svg"
-import CartWidget from "./CartWidget"
+import useCart from '../../hooks/useCart'
+import StoreIcon from "../../assets/store-icon.svg"
+import CartWidget from "../CartWidget"
 import './NavBar.css'
 const NavBar = (props) => {
     const contextValue = useCart()

@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import useCart from '../hooks/useCart'
 
 const ItemsInCartComponent = () => {
     const contextValue = useCart()
+    const navigate = useNavigate()
+
+    const goToCheckout = () => {
+        navigate('/cart')
+        contextValue.openCart()
+    }
 
     return (
         <div className="cartModal w-80 absolute right-5 bg-slate-200 top[-30px] shadow-md block min-h-32">
@@ -16,7 +23,7 @@ const ItemsInCartComponent = () => {
                         <div key={product.id} className="flex text-left gap-5 p-5">
                             <div className="cartImageContainer">
                             <div className="cartModal__image w-20 h-20 overflow-hidden bg-white">
-                                <img className="w-auto h-full" src={product.image} alt={product.title} />
+                                <img className="w-auto h-full mx-auto" src={product.image} alt={product.title} />
                             </div>
                             </div>
                             <div className="product__data">
@@ -31,8 +38,8 @@ const ItemsInCartComponent = () => {
                             </div>
                         </div>
                         ))}
-                <p>Total: ${contextValue.totalPrice}</p>
-                <button className="btn btn-primary bg-slate-600 text-white w-fit">Checkout</button>
+                <p className="my-10 font-bold text-xl">Total: ${contextValue.totalPrice.toLocaleString()}</p>
+                <button className="btn btn-primary bg-slate-600 text-white w-fit" onClick={goToCheckout}>Checkout</button>
                 <button className="btn btn-primary bg-slate-600 text-white w-fit ml-5 mb-5" onClick={() => contextValue.emptyCart()}>Empty cart</button>
                 </>
             ) }

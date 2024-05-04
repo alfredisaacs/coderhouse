@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import useCart from '../hooks/useCart'
+import useCart from '../../hooks/useCart'
 import NavBar from "./NavBar"
-import ItemsInCartComponent from './ItemsInCartComponent'
+import ItemsInCartComponent from '../ItemsInCartComponent'
 
 const Header = (props) => {
     const contextValue = useCart()
