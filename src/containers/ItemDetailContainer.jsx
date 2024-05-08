@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import StarsComponent from '../components/StarsComponent'
-import AddToCartComponent from '../components/AddToCartComponent'
+import AddToCartComponent from '../components/ItemCount'
 import useCart from '../hooks/useCart'
 import { getDetail } from '../utils'
 import './ItemDetailContainer.css'

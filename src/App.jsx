@@ -7,6 +7,7 @@ import Footer  from './components/layout/FooterComponent'
 import CartContainer from './containers/CartContainer'
 import ItemListContainer  from './containers/ItemListContainer'
 import ItemDetailContainer  from './containers/ItemDetailContainer'
+import PurchaseContainer  from './containers/PurchaseContainer'
 import './App.css'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           ))}
           <Route path={`/item/:id`} element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
+          <Route path="/purchase" element={<PurchaseContainer />} />
         </Routes>
       </section>
       </CartProvider>

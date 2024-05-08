@@ -1,0 +1,44 @@
+.cartModal .cart {
+    @apply w-80 absolute right-5 bg-slate-200 shadow-md block min-h-32;
+    top: 105px;
+}
+.cartModal .cart__container {
+    @apply flex text-left gap-5 p-5;
+}
+.cartModal  .cart__image {
+    @apply w-20 h-20 overflow-hidden bg-white
+}
+.cartModal  .cart__image img {
+    @apply w-auto h-full mx-auto;
+}
+.cartModal  .cart__title {
+    @apply whitespace-nowrap overflow-hidden overflow-ellipsis font-bold;
+    width: 200px;
+}
+.cartModal  .remove__item {
+    @apply text-blue-500 hover:underline focus:outline-none bg-transparent w-fit p-0 font-normal hover:border-none;
+}
+.cartModal  .cart__total {
+    @apply my-10 font-bold text-xl;
+}
+
+/*  */
+.cartSection .cart__container {
+    @apply flex text-left gap-5 p-5 my-5 mx-auto;
+    max-width: 800px;
+}
+.cartSection  .cart__image {
+    @apply w-20 h-20 overflow-hidden bg-white
+}
+.cartSection  .cart__image img {
+    @apply w-auto h-full mx-auto;
+}
+.cartSection  .cart__title {
+    @apply font-bold;
+}
+.cartSection  .remove__item {
+    @apply text-blue-500 hover:underline focus:outline-none bg-transparent w-fit p-0 font-normal hover:border-none;
+}
+.cartSection .cart__total {
+    @apply my-10 font-bold text-xl;
+}

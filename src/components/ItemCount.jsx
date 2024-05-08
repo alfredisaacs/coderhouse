@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { useState } from 'react'
 
 const AddToCartComponent = (props) => {
@@ -7,9 +8,20 @@ const AddToCartComponent = (props) => {
         setCounter(counter + val);
     }
 
-    const onAddToCart = () => {
-        // eslint-disable-next-line react/prop-types
-        if(counter) {props.addItemToCart(counter);}
+    const onAddToCart = () => {        
+        if(counter) {
+            // eslint-disable-next-line react/prop-types
+            props.addItemToCart(counter)
+            toast.success('Added to cart!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        }
     }
     return (
         <div className="flex mx-auto mt-10">
